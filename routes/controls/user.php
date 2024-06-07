@@ -10,4 +10,6 @@ Route::prefix('users')
 ->group(fn() => [
     Route::get('home','index')->name('home'),
     Route::get('profile','profile')->name('users.profile'),
+    Route::post('contacts','AddAddr')->name('userAddr'),
+    Route::post('mobile-update','mobile')->name('users.mobile'),
 ]);

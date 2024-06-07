@@ -11,11 +11,10 @@
 
 <script>
    $(document).ready(function () {
-        $("#contactForm").hide();
-        $("#hidContact").click(function (e) {
+        $("#mobileContact").hide();
+        $("#mobileUpdate").click(function (e) {
             e.preventDefault();
-            $("#contactForm").show();
-            $("#master").hide();
+            $("#mobileContact").toggle();
         });
    });
 </script>

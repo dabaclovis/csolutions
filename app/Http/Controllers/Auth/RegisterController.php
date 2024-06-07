@@ -92,7 +92,7 @@ class RegisterController extends Controller
             'name' => $name,
             'fname' => $fname,
             'lname' => $lname,
-            'email' => Str::ucfirst($request->input('email')),
+            'email' => Str::lower($request->input('email')),
             'password' => Hash::make($request->input('password')),
             'created_at' => now(),
             'updated_at' => now(),

@@ -8,10 +8,10 @@ Route::prefix('files')
 ->controller(HandleFilesController::class)
 ->group(fn() => [
     Route::post('avatar', 'userAvatar')->name('users.avatar'),
+
 ]);
 
 
 
 
 
-?>
