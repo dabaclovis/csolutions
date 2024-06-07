@@ -10,7 +10,7 @@
     #mands{
         width: 12%;
     }
-    #clovisd{
+    #clovis{
         width: 8%;
     }
 </style>
