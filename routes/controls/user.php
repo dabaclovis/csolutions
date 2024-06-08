@@ -9,7 +9,10 @@ Route::prefix('users')
 ->controller(HomeController::class)
 ->group(fn() => [
     Route::get('home','index')->name('home'),
+    // show profile page
     Route::get('profile','profile')->name('users.profile'),
-    Route::post('contacts','AddAddr')->name('userAddr'),
+    // update mobile number
     Route::post('mobile-update','mobile')->name('users.mobile'),
+    // update contacts
+    Route::post('update-contacts','contacts')->name('users.contacts'),
 ]);

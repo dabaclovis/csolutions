@@ -12,9 +12,14 @@
 <script>
    $(document).ready(function () {
         $("#mobileContact").hide();
+        $("#addrForm").hide();
         $("#mobileUpdate").click(function (e) {
             e.preventDefault();
             $("#mobileContact").toggle();
+        });
+        $("#showContacts").click(function (e) {
+            e.preventDefault();
+            $("#addrForm").toggle();
         });
    });
 </script>

@@ -70,4 +70,9 @@ class HomeController extends Controller
         ]);
         return back();
     }
+
+    public function contacts(Request $request)
+    {
+        
+    }
 }

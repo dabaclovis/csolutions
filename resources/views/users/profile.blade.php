@@ -46,7 +46,23 @@
                         <div class="" id="hidAddr">
                             6287 sunderland drive <br>
                             Columbus, Ohio 43229. <br>
-                            united states. <span><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
+                            united states. <span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
+                            <div class="w3-container w3-padding" id="addrForm">
+                                <form action="" method="post">
+                                    @csrf
+                                    <div class="form-group mb-0 pb-0">
+                                        <input type="text" class="mb-1" name="addr" placeholder="Street name"><br>
+                                        <input type="text" class="mb-1" name="city" placeholder="City"><br>
+                                        <input type="text" class="mb-1" name="state" placeholder="State / Province"><br>
+                                        <input type="text" class="mb-1" name="zipcode" placeholder="Zip code / Postal Code"><br>
+                                        <input type="text" class="mb-1" name="country" placeholder="Country /Nationality"> <br>
+                                        <textarea name="notes" id="notes" cols="23" rows="2" placeholder="Description about you"></textarea>
+                                    </div>
+                                    <div class="form-group pt-0">
+                                        <button class=" btn btn-sm btn-success">update</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,7 +77,7 @@
                       <div>
                         {{ $user->mobile }}
                         <span id="mobileUpdate"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
-                            <div class="" id="mobileContact">
+                            <div class="w3-container w3-padding" id="mobileContact">
                                 <form action="{{ route('users.mobile') }}" method="post">
                                     @csrf
                                     <div class="">
