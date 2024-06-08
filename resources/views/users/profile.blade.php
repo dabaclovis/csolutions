@@ -18,8 +18,9 @@
                                     <i class="fa fa-home w3-text-blue" aria-hidden="true"></i>
                                 </div>
                                 <div class="w3-rest mt-2">
-                                        {{ Str::ucfirst($user->fname) }},&nbsp;{{ Str::ucfirst($user->lname) }}
-                                          <span id="homedit"><i class="fa fa-edit w3-text-blue" aria-hidden="true"></i></span>
+                                    @if ($contact)
+                                       &nbsp; {{ Str::ucfirst($contact->city) }},&nbsp;{{ Str::ucfirst($contact->state) }}
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -44,11 +45,13 @@
                     <div class="w3-rest pt-2">
                         <span class=" w3-text-blue">  Address</span>
                         <div class="" id="hidAddr">
-                            6287 sunderland drive <br>
-                            Columbus, Ohio 43229. <br>
-                            united states. <span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
+                           @if ($contact)
+                           {{ $contact->addr }} <br>
+                           {{ $contact->city }}, {{ $contact->state }}  {{ $contact->zipcode }}. <br>
+                          {{ $contact->country }}.
+                           @endif <span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
                             <div class="w3-container w3-padding" id="addrForm">
-                                <form action="" method="post">
+                                <form action="{{ route('users.contacts') }}" method="post">
                                     @csrf
                                     <div class="form-group mb-0 pb-0">
                                         <input type="text" class="mb-1" name="addr" placeholder="Street name"><br>
