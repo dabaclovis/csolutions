@@ -83,7 +83,9 @@ class HomeController extends Controller
         ]);
             $userd = Auth::user()->id;
             $cont = Contact::find($userd);
-        if($cont===0) {
+
+
+        if(!$cont) {
             Contact::where('id',Auth::user()->id)->insert([
                 'user_id' => Auth::user()->id,
                 'addr' => $request->input('addr'),
@@ -95,8 +97,9 @@ class HomeController extends Controller
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-        } else {
-            Contact::find(Auth::user()->id)->update([
+        }
+         else {
+            Contact::where('id', Auth::user()->id)->update([
                 'user_id' => Auth::user()->id,
                 'addr' => $request->input('addr'),
                 'city' => $request->input('city'),

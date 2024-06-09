@@ -30,7 +30,7 @@
                         @csrf
                         <div class=" d-flex justify-content-between">
                             <input type="file" name="avatar">
-                            <button class=" btn btn-success btn-sm" type="submit">upload</button>
+                            <button class=" btn btn-success btn-sm" type="submit"><i class="fa fa-file" aria-hidden="true"></i></button>
                         </div>
                     </form>
                 </div>
@@ -46,10 +46,11 @@
                         <span class=" w3-text-blue">  Address</span>
                         <div class="" id="hidAddr">
                            @if ($contact)
-                           {{ $contact->addr }} <br>
+                           {{ $contact->addr }} <span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span><br>
                            {{ $contact->city }}, {{ $contact->state }}  {{ $contact->zipcode }}. <br>
-                          {{ $contact->country }}.
-                           @endif <span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
+                          {{ $contact->country }}. <br>
+                          {{ Str::limit(Str::ucfirst($contact->notes) ,26, '...') }}
+                           @endif
                             <div class="w3-container w3-padding" id="addrForm">
                                 <form action="{{ route('users.contacts') }}" method="post">
                                     @csrf
