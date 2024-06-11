@@ -25,6 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    // home page logic on home controller
     public function index()
     {
         return view('users.home',[
@@ -33,7 +34,7 @@ class HomeController extends Controller
             'articles' => $user->articles,
         ]);
     }
-
+    // profile page logic
     public function profile()
     {
         return view('users.profile',[
@@ -46,7 +47,7 @@ class HomeController extends Controller
     }
 
 
-
+    // update mobile number logic
     public function mobile(Request $request)
     {
         $this->validate($request,[
@@ -58,7 +59,7 @@ class HomeController extends Controller
         ]);
         return back();
     }
-
+    // contact form logic
     public function contacts(Request $request)
     {
         $this->validate($request,[
