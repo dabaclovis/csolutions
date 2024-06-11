@@ -2,7 +2,7 @@
 
 @section('content')
     <div class=" w3-row-padding">
-        <div class="w3-third">
+        <div class="w3-half">
             <div class="w3-container w3-card">
                     @if (Auth::user()->avatar)
                         <div class="w3-display-container">
@@ -30,13 +30,13 @@
                         @csrf
                         <div class=" d-flex justify-content-between">
                             <input type="file" name="avatar">
-                            <button class=" btn btn-success btn-sm" type="submit"><i class="fa fa-file" aria-hidden="true"></i></button>
+                            <button class=" btn btn-success btn-sm" type="submit">upload</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="w3-twothird">
+        <div class="w3-half">
             <div class="w3-container">
                 <div class="w3-row w3-section">
                     <div class="w3-col w3-center w3-text-blue w3-xlarge mt-0" id="clovis">
@@ -46,11 +46,11 @@
                         <span class=" w3-text-blue">  Address</span>
                         <div class="" id="hidAddr">
                            @if ($contact)
-                           {{ $contact->addr }} <span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span><br>
+                           {{ $contact->addr }} <br>
                            {{ $contact->city }}, {{ $contact->state }}  {{ $contact->zipcode }}. <br>
                           {{ $contact->country }}. <br>
                           {{ Str::limit(Str::ucfirst($contact->notes) ,26, '...') }}
-                           @endif
+                           @endif<span id="showContacts"><i class="fa fa-edit w3-text-teal" aria-hidden="true"></i></span>
                             <div class="w3-container w3-padding" id="addrForm">
                                 <form action="{{ route('users.contacts') }}" method="post">
                                     @csrf

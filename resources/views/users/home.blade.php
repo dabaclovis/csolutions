@@ -5,56 +5,36 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header w3-padding-16 w3-text-teal">{{ Str::ucfirst(Auth::user()->fname) }}&nbsp;{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                   @if (count($articles) > 0)
+                       <div class="">
+                        {{ Auth::user()->fname }} have created {{ $articles->count() }} article(s)
+                       </div>
+                       @foreach ($articles as $article)
+                       <details class=" mb-1 w3-container">
+                        <summary class="w3-text-teal">{{ Str::ucfirst($article->title) }}</summary>
+                        <p>{{ Str::limit(ucfirst($article->body), 300, " ...") }} <a href="{{ route('articles.show', $article->id) }}">show details</a></p>
+                        <form action="{{ route('articles.destroy', $article->id) }}" method="post">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
+                        </form>
+                        <small> written by {{ $article->user->fname }}&nbsp; {{ $article->created_at->diffForHumans() }}</small>
+                        </details>
+                       @endforeach
+                   @else
+                       <div class=" display-4 d-flex justify-content-center w3-xlarge">
+                            <p>You Don't have any article Created</p>
+                       </div>
+                   @endif
 
-                    <details>
-                        <summary>the scmable</summary>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ipsam ea velit expedita fugit consectetur illo provident,
-                             deserunt fuga repudiandae. Eius sunt animi quaerat delectus!</p>
-
-                    </details>
-
-                    <dl>
-                        <dt>Sujects</dt>
-                        <dd>
-                            - sub headings
-
-                            &#128568
-                        </dd>
-                    </dl>
-                    <table>
-                        <tr>
-                            <th>Cameron</th>
-                            <th>Nigeria</th>
-                            <th>Ghana</th>
-                        </tr>
-                        <tr>
-                            <td>Yaounde</td>
-                            <td>Abuja</td>
-                            <td>Accra</td>
-                        </tr>
-                        <tr>
-                            <td>Douala</td>
-                            <td>Lagos</td>
-                            <td>Kumasi</td>
-                        </tr>
-                    </table>
-                    <style>
-                        table, th, td{
-                            border: 1px solid black;
-                            border-collapse: collapse;
-                        }
-                    </style>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 @endsection

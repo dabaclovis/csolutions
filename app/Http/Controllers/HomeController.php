@@ -27,7 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('users.home');
+        return view('users.home',[
+            $user_id = Auth::user()->id,
+            $user = User::find($user_id),
+            'articles' => $user->articles,
+        ]);
     }
 
     public function profile()
@@ -42,23 +46,6 @@ class HomeController extends Controller
     }
 
 
-    public  function AddAddr(Request $request)
-    {
-
-        // dd($request);
-        Contact::where('id', Auth::user()->id)->update([
-            'user_id' => Auth::user()->id,
-            'addr' => $request->input('addr'),
-            'city' => $request->input('city'),
-            'state' => $request->input('state'),
-            'zipcode' => $request->input('zipcode'),
-            'country' => $request->input('country'),
-            'notes' => $request->input('notes'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        return back();
-    }
 
     public function mobile(Request $request)
     {

@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
-
+use App\Http\Controllers\Users\ArticlesController;
 
 Route::prefix('users')
 ->controller(HomeController::class)
@@ -15,4 +14,8 @@ Route::prefix('users')
     Route::post('mobile-update','mobile')->name('users.mobile'),
     // update contacts
     Route::post('update-contacts','contacts')->name('users.contacts'),
+    // Articles controller
+    Route::resources([
+        'articles' => ArticlesController::class,
+    ]),
 ]);

@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('tables.css') }}" type="text/css">
 
     <!-- Scripts -->
     @include('includers.headers')
@@ -57,7 +58,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('home') }}" class="dropdown-item">Dashboard</a>
                                     <a href="{{ route('users.profile') }}" class="dropdown-item">Profile</a>
-                                    <a href="" class="dropdown-item">Article</a>
+                                    <a href="{{ route('articles.index') }}" class="dropdown-item">Article</a>
                                     <a href="" class="dropdown-item">Contacts</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
