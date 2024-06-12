@@ -9,8 +9,8 @@
 
                 <div class="card-body mt-2 w3-container w3-light-gray w3-text-blue w3-card-4">
                     <form method="POST" action="{{ route('regination') }}">
+                        {{ {{ csrf_field() }}}}
                         @csrf
-
                         <div class="w3-row mb-1">
                             <div id="mands" class="w3-col w3-xlarge w3-center">
                                 <i class="fa fa-user pt-2" aria-hidden="true"></i>
